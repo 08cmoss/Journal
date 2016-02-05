@@ -10,14 +10,40 @@ import Foundation
 
 class Entry: Equatable {
     
-    let timestamp: NSDate
+    private let timestampKey = "timestamp"
+    private let titleKey = "title"
+    private let bodyTextKey = "bodyText"
+    
+    var timestamp: String
     let title: String
     let bodyText: String
     
-    init(timestamp: NSDate, title: String, bodyText: String) {
+    init(timestamp: String, title: String, bodyText: String) {
         self.timestamp = timestamp
         self.title = title
         self.bodyText = bodyText
+    }
+    
+    init?(dictionary: [String: AnyObject]) {
+        guard let timestamp = dictionary[timestampKey] as? String, title = dictionary[titleKey] as? String, bodyText = dictionary[bodyTextKey] as? String else {
+            self.timestamp = ""
+            self.title = ""
+            self.bodyText = ""
+            return nil
+        }
+        self.timestamp = timestamp
+        self.title = title
+        self.bodyText = bodyText
+    }
+    
+    func dictionaryCopy() -> [String: AnyObject] {
+        
+        let dictionary = [
+            timestampKey: self.timestamp,
+            titleKey: self.title,
+            bodyTextKey: self.bodyText
+        ]
+        return dictionary
     }
 }
 

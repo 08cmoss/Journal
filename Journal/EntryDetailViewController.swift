@@ -20,14 +20,23 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleTextField.delegate = self
+        
+        if let entry = entry {
+        updateWith(entry)
+        }
     
     }
-    
-
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
         return true
+    }
+    
+    func updateWith(entry: Entry) {
+        
+        titleTextField.text = entry.title
+        entryTextView.text = entry.bodyText
+        
     }
 
     //MARK: -Actions
@@ -39,11 +48,13 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         
     }
     @IBAction func saveEntry(sender: AnyObject) {
-        let entry = Entry(timestamp: NSDate(), title: titleTextField.text!, bodyText: entryTextView.text!)
+        //let entry = Entry(title: titleTextField.text, bodyText: entryTextView.text)
+        let entry = Entry(timestamp: "\(NSDate())", title: titleTextField.text!, bodyText: entryTextView.text)
         EntryController.sharedInstance.addEntry(entry)
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    /*
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -51,6 +62,6 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

@@ -37,6 +37,7 @@ class EntryListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("entryCell", forIndexPath: indexPath)
         let entry = EntryController.sharedInstance.entriesArray[indexPath.row]
         cell.textLabel?.text = entry.title
+        cell.detailTextLabel?.text = "\(entry.timestamp)"
         
         return cell
     }
@@ -44,18 +45,29 @@ class EntryListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         
+        if editingStyle == .Delete {
+            EntryController.sharedInstance.entriesArray.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        }
     
     }
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "entryViewSegue" {
+            let entryDetailViewController = segue.destinationViewController as! EntryDetailViewController
+            if let cell = sender as? UITableViewCell, indexPath = tableView.indexPathForCell(cell) {
+                let entry = EntryController.sharedInstance.entriesArray[indexPath.row]
+                entryDetailViewController.entry = entry
+            }
+        }
     }
-    */
+    
 
 }
