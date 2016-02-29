@@ -10,9 +10,13 @@ import UIKit
 
 class EntryListTableViewController: UITableViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.addObserver(self, selector: "entriesUpdated:", name: EntriesUpdatedNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -21,17 +25,21 @@ class EntryListTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    
+    func entriesUpdated(notification: NSNotification) {
+        self.tableView.reloadData()
+    }
+    
+    
+    
     // MARK: - Table view data source
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return EntryController.sharedController.entries.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("entryCell", forIndexPath: indexPath)
-
         let entry = EntryController.sharedController.entries[indexPath.row]
-        
         cell.textLabel?.text = entry.title
 
         return cell
@@ -46,7 +54,6 @@ class EntryListTableViewController: UITableViewController {
             
             // Delete the row from the table view
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
         }
     }
 
@@ -69,10 +76,8 @@ class EntryListTableViewController: UITableViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
+    
 
 
 }
