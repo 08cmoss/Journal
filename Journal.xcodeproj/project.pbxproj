@@ -35,6 +35,7 @@
 		8F5EEDAF1C84CC2E00E5875C /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685863BE1BCFF8AB00CB5302 /* EntryDetailViewController.swift */; };
 		8F5EEDB01C84CC3100E5875C /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685863BC1BCFF89C00CB5302 /* EntryListTableViewController.swift */; };
 		8F5EEDB11C84CC3100E5875C /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685863BC1BCFF89C00CB5302 /* EntryListTableViewController.swift */; };
+		8FD976E81C8622E900C6C793 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD976E71C8622E900C6C793 /* UserController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		8F5EED9A1C84B6F400E5875C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		8F5EED9F1C84C94000E5875C /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseController.swift; path = ../FirebaseController.swift; sourceTree = "<group>"; };
 		8F5EEDA51C84CB2000E5875C /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		8FD976E71C8622E900C6C793 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				68816AC71BBB5405000569CE /* AppDelegate.swift */,
 				68816ACB1BBB5405000569CE /* Main.storyboard */,
 				685E42D51BBD8267003818EB /* Entry.swift */,
+				8FD976E71C8622E900C6C793 /* UserController.swift */,
 				682940A01BBE42A000359935 /* EntryController.swift */,
 				685863BC1BCFF89C00CB5302 /* EntryListTableViewController.swift */,
 				685863BE1BCFF8AB00CB5302 /* EntryDetailViewController.swift */,
@@ -329,6 +332,7 @@
 				685E42D61BBD8267003818EB /* Entry.swift in Sources */,
 				682940A11BBE42A000359935 /* EntryController.swift in Sources */,
 				685863BD1BCFF89C00CB5302 /* EntryListTableViewController.swift in Sources */,
+				8FD976E81C8622E900C6C793 /* UserController.swift in Sources */,
 				685863BF1BCFF8AB00CB5302 /* EntryDetailViewController.swift in Sources */,
 				68816AC81BBB5405000569CE /* AppDelegate.swift in Sources */,
 			);

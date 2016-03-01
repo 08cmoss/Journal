@@ -44,11 +44,11 @@ class EntryController {
             entries.removeAtIndex(entryIndex)
         }
     }
-    
+
     
     func loadFromPersistentStorage() {
         
-        let entriesReference = FirebaseController.entryBaseentriesReference.observeEventType(.Value, withBlock: {(snap) -> Void in
+        let entriesReference = FirebaseController.entryBase.observeEventType(.Value, withBlock: {(snap) -> Void in
             print("entries: \(snap.value)")
             
             if let entryDictionaries = snap.value as? [Dictionary<String, AnyObject>] {
